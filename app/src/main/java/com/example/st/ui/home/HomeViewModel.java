@@ -10,6 +10,11 @@ import nl.joery.timerangepicker.TimeRangePicker;
 
 public class HomeViewModel extends ViewModel {
 
+ //variables that holds start time,end time and duration in case we needed it for any backend calculation
+     TimeRangePicker.Time startTime,endTime;
+    TimeRangePicker.TimeDuration duration;
+
+
     private final MutableLiveData<String> mText;
     public HomeViewModel() {
         mText = new MutableLiveData<>();
