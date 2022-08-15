@@ -27,9 +27,9 @@ public class HomeFragment extends Fragment {
 //Assign value to binding variable to hold the IDs
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 //Set the Default values of the time picker to the Text view
-        binding.startTimeTextView.setText("Start Time: "+binding.picker.getStartTime());
-        binding.endTimeTextView.setText("End Time: "+binding.picker.getEndTime());
-        binding.durationTextView.setText("Duration: "+binding.picker.getDuration());
+        binding.startTimeTextView.setText(binding.picker.getStartTime().toString());
+        binding.endTimeTextView.setText(binding.picker.getEndTime().toString());
+        binding.durationTextView.setText(binding.picker.getDuration().toString());
 
 
 //Set the Time Change Click listener to change values of time every time user pick different hour
@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
             //Called only when User change the Start time
             public void onStartTimeChange(@NonNull TimeRangePicker.Time startTime) {
                 //set Start time text view
-                binding.startTimeTextView.setText("Start Time: "+startTime);
+                binding.startTimeTextView.setText(startTime.toString());
                 //set Start time variable in the viewModel
                 homeViewModel.startTime=startTime;
             }
@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
             //Called only when User change the End time
             public void onEndTimeChange(@NonNull TimeRangePicker.Time endTime) {
                 //set End time text view
-                binding.endTimeTextView.setText("End Time : "+endTime);
+                binding.endTimeTextView.setText(endTime.toString());
                 //set End time variable in the viewModel
                 homeViewModel.endTime=endTime;
             }
@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
             //Called when either Start time or End time change
             public void onDurationChange(@NonNull TimeRangePicker.TimeDuration timeDuration) {
                 //set Duration text view
-               binding.durationTextView.setText("Duration : "+ timeDuration);
+               binding.durationTextView.setText(timeDuration.toString());
                 //set Duration variable in the viewModel
                homeViewModel.duration=timeDuration;
             }
@@ -68,8 +68,6 @@ public class HomeFragment extends Fragment {
         //Variable Holds the Fragment after Creating and edit it by the binding variable
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
