@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1c1d22"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="375dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="48dp"
+        android:background="#424151"
+        app:cardBackgroundColor="#424151"
+        app:cardCornerRadius="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <nl.joery.animatedbottombar.AnimatedBottomBar
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginBottom="648dp"
+            android:background="#FFF"
+            android:backgroundTint="#424151"
+            app:abb_badgeTextColor="#f2f2f2"
+            app:abb_indicatorAppearance="round"
+
+            app:abb_indicatorHeight="4dp"
+            app:abb_indicatorLocation="bottom"
+            app:abb_indicatorMargin="16dp"
+            app:abb_rippleColor="#7242f5"
+            app:abb_rippleEnabled="true"
+            app:abb_selectedIndex="0"
+            app:abb_selectedTabType="icon"
+            app:abb_tabAnimation="slide"
+            app:abb_tabColor="#f2f2f2"
+            app:abb_tabColorSelected="@color/white"
+            app:abb_tabs="@menu/tabs" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.st.loginFragment"
+        android:layout_width="335dp"
+        android:layout_height="475dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
