@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1c1d22"
+    android:background="#9FFF8F00"
     tools:context=".LoginActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
         android:name="com.example.st.pickSleepTimeFragment"
-        android:layout_width="405dp"
-        android:layout_height="595dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="375dp"
         android:layout_height="52dp"
         android:layout_marginTop="48dp"
@@ -34,8 +37,6 @@
             android:allowClickWhenDisabled="false"
             android:background="#424151"
             android:clickable="false"
-            app:abb_tabColor="#f2f2f2"
-            app:abb_tabColorSelected="#f2f2f2"
             app:abb_indicatorAppearance="round"
             app:abb_indicatorHeight="4dp"
             app:abb_indicatorLocation="bottom"
@@ -44,6 +45,8 @@
             app:abb_selectedIndex="0"
             app:abb_selectedTabType="text"
             app:abb_tabAnimation="slide"
+            app:abb_tabColor="#f2f2f2"
+            app:abb_tabColorSelected="#f2f2f2"
             app:abb_tabs="@menu/timepickers" />
     </androidx.cardview.widget.CardView>
 
