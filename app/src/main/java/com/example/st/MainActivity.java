@@ -2,6 +2,7 @@ package com.example.st;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
@@ -20,22 +21,24 @@ public class MainActivity extends AppCompatActivity {
     private Fragment fragmentintro= new IntroFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        Boolean isStartPressed;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
         ImageView startApp= findViewById(R.id.introButton);
 
-        startApp.setOnClickListener(view -> {
+        startApp.setOnClickListener(view ->
+        {
 
                     findViewById(R.id.introButton).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout));
                     findViewById(R.id.textView).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout));
                     findViewById(R.id.lottieAnimationView).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadeout));
                     handler.postDelayed(startNewFragment,1000);
+                    startApp.setOnClickListener(null);
+                                                                         });
 
-                                                                         }
-        );
+
             }
     public Runnable startNewFragment = ()->
             getSupportFragmentManager()
