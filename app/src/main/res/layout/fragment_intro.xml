@@ -43,7 +43,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.st.loginFragment"
+        android:name="com.example.st.ui.login.loginFragment"
         android:layout_width="397dp"
         android:layout_height="595dp"
         app:layout_constraintBottom_toBottomOf="parent"

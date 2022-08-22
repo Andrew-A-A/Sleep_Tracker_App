@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.st.ui.login.loginFragment;
+import com.example.st.ui.login.signupFragment;
+
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 

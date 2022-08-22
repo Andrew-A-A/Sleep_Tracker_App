@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1c1d22"
-    tools:context=".pickWakeTimeFragment">
+    tools:context=".ui.login.pickWakeTimeFragment">
 
 
     <TextView
@@ -22,7 +22,9 @@
     <TimePicker
         android:id="@+id/sleepTimepicker"
         android:layout_width="349dp"
-        android:layout_height="377dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="51dp"
         android:amPmTextColor="#FFFFFF"
         android:backgroundTint="@color/white"
         android:headerBackground="#462183"
@@ -31,9 +33,21 @@
         android:numbersTextColor="#F1F1F1"
         android:outlineAmbientShadowColor="@color/white"
         android:outlineSpotShadowColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.209" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleepTimepicker" />
 </androidx.constraintlayout.widget.ConstraintLayout>

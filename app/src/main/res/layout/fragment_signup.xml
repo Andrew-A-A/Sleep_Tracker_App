@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#37386e"
-    tools:context=".signupFragment">
+    tools:context=".ui.login.signupFragment">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.959">
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="24dp"
@@ -61,7 +61,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="24dp"
@@ -76,7 +76,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/password_edit_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="24dp"
@@ -86,12 +86,13 @@
             android:drawablePadding="19dp"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:padding="10dp"
             android:textColorHint="#ffffff"
             android:textSize="20dp" />
 
         <EditText
+            android:id="@+id/confirm_password_edit_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="24dp"
@@ -101,13 +102,13 @@
             android:drawablePadding="19dp"
             android:ems="10"
             android:hint="Confirm Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:padding="10dp"
             android:textColorHint="#ffffff"
             android:textSize="20dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/signup"
             style="android:style/Widget.button"
             android:layout_width="151dp"
             android:layout_height="70dp"

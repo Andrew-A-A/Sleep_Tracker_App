@@ -7,7 +7,7 @@
     android:background="#1c1d22"
 
 
-    tools:context=".pickSleepTimeFragment">
+    tools:context=".ui.login.pickSleepTimeFragment">
 
     <TextView
         android:id="@+id/textView4"
@@ -37,4 +37,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.209" />
+
+    <Button
+        android:id="@+id/sleep_time_next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Sleep Time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleepTimepicker"
+        app:layout_constraintVertical_bias="0.706" />
 </androidx.constraintlayout.widget.ConstraintLayout>

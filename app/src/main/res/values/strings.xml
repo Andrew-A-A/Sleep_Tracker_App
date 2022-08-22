@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">S.T</string>
+    <string name="app_name">Sleep Tracker</string>
     <string name="title_home">Home</string>
     <string name="title_tips">Tips</string>
     <string name="title_account">Account</string>
