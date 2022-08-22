@@ -1,17 +1,15 @@
 package com.example.st.ui.home;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.st.databinding.FragmentHomeBinding;
+
 
 import nl.joery.timerangepicker.TimeRangePicker;
 
@@ -33,15 +31,6 @@ public class HomeFragment extends Fragment {
         binding.startTimeTextView.setText(binding.picker.getStartTime().toString());
         binding.endTimeTextView.setText(binding.picker.getEndTime().toString());
         binding.durationTextView.setText(binding.picker.getDuration().toString());
-
-
-        int duration=binding.picker.getDuration().getHour();
-
-
-
-        Log.i("Time : ", String.valueOf(duration));
-
-
 
 
 //Set the Time Change Click listener to change values of time every time user pick different hour

@@ -11,7 +11,7 @@ import com.example.st.Database.SleepTrackerDatabase;
 public class LoginViewModel {
     //SQLiteDatabase db=new SleepTrackerDatabase();
    public static class ViewModel {
-       static String currentEmail;
+       public static String currentEmail;
        static String Email;
        static String Password;
        static String Name ;
