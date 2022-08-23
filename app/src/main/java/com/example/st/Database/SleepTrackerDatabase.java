@@ -131,6 +131,12 @@ public class SleepTrackerDatabase extends SQLiteOpenHelper {
         Cursor cursor=DB.rawQuery("Select * from User",null);   //Define Cursor that will hold the returned records to view them
         return cursor;
     }
+    public Cursor ViewCurrentUserData(String email)
+    {
+        SQLiteDatabase DB=this.getReadableDatabase();                //initialize database object to read from the database
+        Cursor cursor=DB.rawQuery("Select * from User where Email=?",new String[]{email});   //Define Cursor that will hold the returned records to view them
+        return cursor;
+    }
 
     //Function that checks the user password
     public Boolean CheckUsersPassword(String email,String password)

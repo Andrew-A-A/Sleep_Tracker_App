@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -23,7 +24,16 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     SleepTrackerDatabase database;
 
-//First function called to create the fragment
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+
+    }
+
+    //First function called to create the fragment
     @SuppressLint("SetTextI18n")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,10 +45,22 @@ public class HomeFragment extends Fragment {
 //Assign value to binding variable to hold the IDs
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 //Set the Default values of the time picker to the Text view
+        Cursor cursor=database.ViewCurrentUserData(LoginViewModel.ViewModel.currentEmail);
+        cursor.moveToFirst();
+        int wakemin=(cursor.getInt(6));
+        int wakehour=cursor.getInt(5);
+        int sleephour=cursor.getInt(3);
+        int sleepmin=cursor.getInt(4);
+        binding.picker.setStartTime(new TimeRangePicker.Time(sleephour,sleepmin));
+        int totalmin=(wakehour*60)+wakemin;
+        binding.picker.setEndTimeMinutes(totalmin);
+      //  binding.picker.setEndTime(new TimeRangePicker.Time(0,0));
+       // binding.picker.setStartTime(new TimeRangePicker.Time(3,0));
         binding.startTimeTextView.setText(binding.picker.getStartTime().toString());
         binding.endTimeTextView.setText(binding.picker.getEndTime().toString());
         binding.durationTextView.setText(binding.picker.getDuration().toString());
 
+       // Log.i("LOL",cursor.getString(0));
 
 //Set the Time Change Click listener to change values of time every time user pick different hour
         binding.picker.setOnTimeChangeListener(new TimeRangePicker.OnTimeChangeListener() {
