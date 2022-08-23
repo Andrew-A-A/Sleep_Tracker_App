@@ -43,6 +43,7 @@ public class signupFragment extends Fragment {
                 String email=binding.emailEditText.getText().toString();
                 LoginViewModel.ViewModel.Password=password;
                 LoginViewModel.ViewModel.Name=name;
+                LoginViewModel.ViewModel.currentEmail=email;
                 Log.i("name viewmodel", LoginViewModel.ViewModel.Name);Log.i("name viewmodel", LoginViewModel.ViewModel.Name);
                 LoginViewModel.ViewModel.Email=email;
 
