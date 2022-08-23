@@ -1,6 +1,9 @@
 package com.example.st.ui.home;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.st.Database.SleepTrackerDatabase;
 import com.example.st.databinding.FragmentHomeBinding;
+import com.example.st.ui.login.LoginViewModel;
 
 
 import nl.joery.timerangepicker.TimeRangePicker;
@@ -16,11 +21,13 @@ import nl.joery.timerangepicker.TimeRangePicker;
 public class HomeFragment extends Fragment {
 //Declare Binding Variable that will hold IDs of all Views in fragment instead of using "findViewById()" function
     private FragmentHomeBinding binding;
+    SleepTrackerDatabase database;
 
 //First function called to create the fragment
     @SuppressLint("SetTextI18n")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        database=new SleepTrackerDatabase(getActivity());
 //Declare Object of the viewModel that holds all backend functions and variables
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
@@ -65,14 +72,50 @@ public class HomeFragment extends Fragment {
                 //set Duration variable in the viewModel
                homeViewModel.duration=timeDuration;
             }
+
         });
 
+        binding.SaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int duration=database.getDuration(binding.picker.getDuration().getHour(),binding.picker.getDuration().getMinute());
+                float cycles=database.GetCycles(duration);
+                String rate= database.GetRating(cycles);
+                int day= database.NumDays(LoginViewModel.ViewModel.currentEmail);
+                database.InsertSleepingSchedule(binding.picker.getStartTime().getHour(),binding.picker.getStartTime().getMinute(),binding.picker.getEndTime().getHour(),
+                        binding.picker.getEndTime().getMinute(),duration,cycles,rate, LoginViewModel.ViewModel.currentEmail,day);
+                Cursor current= database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+                Log.i("Data",LogData());
+
+
+            }
+        });
         return binding.getRoot();
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    private String LogData() {
+        Cursor cursor = database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+        StringBuffer buffer = new StringBuffer();
+        while (cursor.moveToNext()) {
+            buffer.append("RecordID: " + cursor.getInt(0) + "\n");
+            buffer.append("Sleeping Hour: " + cursor.getInt(1) + "\n");
+            buffer.append("Sleeping Minute: " + cursor.getInt(2) + "\n");
+            buffer.append("Wake Up Hour: " + cursor.getInt(3) + "\n");
+            buffer.append("Wake Up Minute: " + cursor.getInt(4) + "\n");
+            buffer.append("Duration: " + cursor.getInt(5) + "\n");
+            buffer.append("Number of Cycles: " + cursor.getFloat(6)  + "\n");
+            buffer.append("Rating: "+ cursor.getString(7)  + "\n");
+            buffer.append("Email: "+ cursor.getString(8)  + "\n");
+            buffer.append("Day: "+ cursor.getInt(9)  + "\n");
+            buffer.append("----------------------------" + "\n");
+
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(true);
+        builder.setTitle("User Entry Details");
+        builder.setMessage(buffer.toString());
+        builder.show();
+
+        return buffer.toString();
     }
 }

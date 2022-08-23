@@ -151,7 +151,7 @@ public class SleepTrackerDatabase extends SQLiteOpenHelper {
     public int NumDays(String email)
     {
         db=getReadableDatabase();                                 //initialize database object to read from the database
-        Cursor matchedUser=db.rawQuery("select * from User where name like?", new String[]{"%"+email+"%"});  //Define Cursor that will hold the returned records with that given email
+        Cursor matchedUser=db.rawQuery("select * from User where Email=?", new String[]{email});  //Define Cursor that will hold the returned records with that given email
         matchedUser.moveToFirst();                          //Point to the first matched record
 
         //Get the index of the needed columns
@@ -195,7 +195,7 @@ public class SleepTrackerDatabase extends SQLiteOpenHelper {
     }
 
     //Function to calculate the duration in minutes
-    int getDuration(int hour,int min)
+    public int getDuration(int hour,int min)
     {
         int total=(60*hour)+min;
         return total;

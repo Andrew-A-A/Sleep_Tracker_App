@@ -53,18 +53,18 @@ public class loginFragment extends Fragment {
                                                                               Toast.makeText(getContext(),"Welcome Back Dear Friend <3 :)",Toast.LENGTH_SHORT).show();
                                                                               Intent i = new Intent(getActivity(), AppActivity.class);
                                                                               startActivity(i);
-                                                                              Log.i("Test4","mafish 3alashan matgeesh");
+
                                                                           }
                                                                           else
                                                                           {
                                                                               Toast.makeText(getContext(),"Incorrect Password Please Try Again :( ",Toast.LENGTH_SHORT).show();
-                                                                              Log.i("Test3","mafish 3alashan matgeesh");
+
                                                                           }
                                                                       }
                                                                       else
                                                                       {
                                                                           Toast.makeText(getContext(),"Incorrect Email Please Try Again :)",Toast.LENGTH_SHORT).show();
-                                                                          Log.i("Test1","mafish 3alashan matgeesh");
+
                                                                       }
                                                                   }
                                                                   else
