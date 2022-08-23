@@ -30,4 +30,7 @@
             android:resource="@array/preloaded_fonts" />
     </application>
 
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"
+        tools:ignore="ManifestOrder" />
+
 </manifest>

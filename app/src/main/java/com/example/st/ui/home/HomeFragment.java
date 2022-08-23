@@ -1,8 +1,10 @@
 package com.example.st.ui.home;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,7 +110,15 @@ public class HomeFragment extends Fragment {
                         binding.picker.getEndTime().getMinute(),duration,cycles,rate, LoginViewModel.ViewModel.currentEmail,day);
                 Cursor current= database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
                 Log.i("Data",LogData());
-
+                int currentHour;
+                currentHour =binding.picker.getEndTime().getHour();
+                int currentMinute;
+                currentMinute = binding.picker.getEndTime().getMinute();
+                Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+                intent.putExtra(AlarmClock.EXTRA_HOUR,currentHour);
+                intent.putExtra(AlarmClock.EXTRA_MINUTES,currentMinute);
+                if(currentHour<=24 && currentMinute <=60){
+                    startActivity(intent);}
 
             }
         });
