@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.st.R;
 import com.example.st.databinding.FragmentMusicBinding;
@@ -19,12 +20,18 @@ public class MusicFragment extends Fragment {
     MusicViewModel musicViewModel;
 
     private FragmentMusicBinding binding;
+    MediaPlayer WhiteNoise1MediaPlayer;
+    MediaPlayer WhiteNoise2MediaPlayer;
+    MediaPlayer WhiteNoise3MediaPlayer;
+    MediaPlayer WhiteNoise4MediaPlayer;
+    MediaPlayer WhiteNoise5MediaPlayer;
+    MediaPlayer WhiteNoise6MediaPlayer;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         musicViewModel =
-                new ViewModelProvider(this).get(MusicViewModel.class);
+                new ViewModelProvider(requireActivity()).get(MusicViewModel.class);
 
         binding = FragmentMusicBinding.inflate(inflater, container, false);
 
@@ -38,16 +45,21 @@ public class MusicFragment extends Fragment {
 
         int whiteNoise1= R.raw.whitenoise1;
         int whiteNoise2= R.raw.whitenoise2;
-        MediaPlayer WhiteNoise1MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise1);
-       MediaPlayer WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise2);
-        final boolean[] isPlaying1 = {WhiteNoise1MediaPlayer.isPlaying()};
-        final boolean[] isPlaying2 = {WhiteNoise2MediaPlayer.isPlaying()};
-       musicViewModel.isPlaying1 =isPlaying1;
-       musicViewModel.isPlaying2 =isPlaying2;
+        int whiteNoise3= R.raw.whitenoise3;
+        int whiteNoise4= R.raw.whitenoise4;
+        int whiteNoise5= R.raw.whitenoise5;
+        int whiteNoise6= R.raw.whitenoise6;
+
+         WhiteNoise1MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise1);
+         WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise2);
+         WhiteNoise3MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise3);
+         WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise4);
+         WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise5);
+         WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise6);
         binding.offlineSound1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (musicViewModel.isPlaying1[0]) {
+                if (WhiteNoise1MediaPlayer.isPlaying()) {
                     binding.offlineSound1Button.setText("▶");
                     WhiteNoise1MediaPlayer.setLooping(true);
                     WhiteNoise1MediaPlayer.pause();
@@ -56,12 +68,12 @@ public class MusicFragment extends Fragment {
                     binding.offlineSound1Button.setText("■");
                     WhiteNoise1MediaPlayer.start();
                 }
-                isPlaying1[0] =(!isPlaying1[0]);
+
             }
         }); binding.offlineSound2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (musicViewModel.isPlaying2[0]) {
+                if (WhiteNoise2MediaPlayer.isPlaying()) {
                     binding.offlineSound2Button.setText("▶");
                     WhiteNoise2MediaPlayer.setLooping(true);
                     WhiteNoise2MediaPlayer.pause();
@@ -70,7 +82,7 @@ public class MusicFragment extends Fragment {
                     binding.offlineSound2Button.setText("■");
                     WhiteNoise2MediaPlayer.start();
                 }
-                isPlaying2[0] =(!isPlaying2[0]);
+
             }
         });
 
@@ -83,6 +95,8 @@ public class MusicFragment extends Fragment {
 
         super.onDestroyView();
         binding = null;
+        WhiteNoise1MediaPlayer.stop();
+        WhiteNoise2MediaPlayer.stop();
 
     }
 }
