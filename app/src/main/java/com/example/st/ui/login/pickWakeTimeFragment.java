@@ -1,6 +1,7 @@
 package com.example.st.ui.login;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.example.st.AppActivity;
 import com.example.st.Database.SleepTrackerDatabase;
 import com.example.st.R;
 import com.example.st.databinding.FragmentPickWakeTimeBinding;
@@ -36,7 +38,7 @@ public class pickWakeTimeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.i("Sleep Hour :", String.valueOf(LoginViewModel.ViewModel.sleepHour));
-        Toast.makeText(getContext(),LoginViewModel.ViewModel.Name,Toast.LENGTH_LONG).show();
+       // Toast.makeText(getContext(),LoginViewModel.ViewModel.Name,Toast.LENGTH_LONG).show();
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
@@ -54,6 +56,8 @@ public class pickWakeTimeFragment extends Fragment {
                 Toast.makeText(getContext(),"User Added !",Toast.LENGTH_SHORT).show();
                 Log.i("save","Done");
                 LogData();
+                Intent i = new Intent(getActivity(), AppActivity.class);
+                startActivity(i);
             }
         });
     }

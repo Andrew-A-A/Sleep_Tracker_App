@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginandsignupforms"
+    android:background="#1c1d22"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -44,8 +44,8 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="com.example.st.ui.login.loginFragment"
-        android:layout_width="394dp"
-        android:layout_height="723dp"
+        android:layout_width="397dp"
+        android:layout_height="595dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

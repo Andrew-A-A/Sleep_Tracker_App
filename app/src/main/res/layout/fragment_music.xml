@@ -8,75 +8,21 @@
     tools:backgroundTint="@color/black"
     tools:context=".ui.music.MusicFragment">
 
-    <ImageView
-        android:id="@+id/offline_sound_1_image_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="71dp"
-        android:src="@drawable/ic_noise1"
-        app:layout_constraintBottom_toTopOf="@+id/offline_sound_1_button"
-        app:layout_constraintEnd_toStartOf="@+id/offline_sound_2_image_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/offline_sound_2_image_view" />
-
-    <ImageView
-        android:id="@+id/offline_sound_2_image_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="48dp"
-        android:src="@drawable/ic_noise2"
-        app:layout_constraintBottom_toBottomOf="@+id/offline_sound_2_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/offline_sound_1_image_view"
-        app:layout_constraintTop_toTopOf="@+id/offline_sounds_text" />
-
-    <Button
-        android:id="@+id/offline_sound_1_button"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="52dp"
-        android:text="▶"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="@+id/offline_sound_1_image_view" />
-
-    <Button
-        android:id="@+id/offline_sound_2_button"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="236dp"
-        android:text="▶"
-        app:layout_constraintStart_toStartOf="@+id/offline_sound_2_image_view"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/offline_sounds_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:fontFamily="@font/roboto_black"
-        android:text="Offline Whitenoise"
-        android:textColor="#CFCCCC"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:fontFamily="@font/roboto_black"
-        android:text="Online Whitenoise"
-        android:textColor="#CFCCCC"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/offline_sound_2_button"
-        app:layout_constraintTop_toBottomOf="@+id/offline_sound_2_button" />
-
+        android:horizontalSpacing="6dp"
+        android:numColumns="2"
+        android:paddingStart="20dp"
+        android:paddingEnd="-80dp"
+        android:verticalSpacing="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
