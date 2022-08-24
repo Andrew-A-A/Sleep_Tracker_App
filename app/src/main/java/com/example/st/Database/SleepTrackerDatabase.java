@@ -259,35 +259,47 @@ public class SleepTrackerDatabase extends SQLiteOpenHelper {
         }
     }
 
-    //Function that updates the sleeping schedule entry of the current day
-    public Boolean UpdateSleepingSchedule(String email, int sleeptimehour,int sleeptimemin,int wakeuptimehour, int wakeuptimemin,int durationhour, int durationmin)
+    //Function that updates the default sleeping schedule entry of specific user
+    public Boolean UpdateUserSleepingSchedule(String email, int sleeptimehour,int sleeptimemin)
     {
         SQLiteDatabase DB=this.getWritableDatabase();              //Initialize database object to write in the database
         ContentValues contentValues=new ContentValues();           //Create a new object using ContentValues
-        int day=NumDays(email);                                    //get the day number
-        String d=String.valueOf(day);
-        Cursor cursor=DB.rawQuery("Select * from SleepingSchedule where Email=? and Day=?",new String[]{email,d});   //Define Cursor that will hold the returned record with that email
-        contentValues.put("SleepingTimeHour",sleeptimehour);      //update columns with its new value
-        contentValues.put("SleepingTimeMin",sleeptimemin);
-        contentValues.put("WakeUpTimeHour",wakeuptimehour);
+        contentValues.put("SleepTimeHour",sleeptimehour);      //update columns with its new value
+        contentValues.put("SleepTimeMin",sleeptimemin);
+        Cursor cursor=DB.rawQuery("Select * from User where Email=? ",new String[]{email});   //Define Cursor that will hold the returned record with that email
+        if(cursor.getCount()>0) {
+            long res = DB.update("User", contentValues, "Email=? ", new String[]{email});  //update that object in database "table sleeping schedule"
+
+            // DB.close();
+            //Check whether the update is done successfully
+            if (res == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Function that updates the default waking schedule entry of specific user
+    public Boolean UpdateUserWakingSchedule(String email,int wakeuptimehour, int wakeuptimemin)
+    {
+        SQLiteDatabase DB=this.getWritableDatabase();              //Initialize database object to write in the database
+        ContentValues contentValues=new ContentValues();           //Create a new object using ContentValues
+        contentValues.put("WakeupTimeHour",wakeuptimehour);       //update columns with its new value
         contentValues.put("WakeUpTimeMin",wakeuptimemin);
-        int duration=getDuration(durationhour,durationmin);
-        contentValues.put("Duration",duration);
-        float cycles=GetCycles(duration);
-        contentValues.put("Cycles",cycles);
-        String rating=GetRating(cycles);
-        contentValues.put("Rating",rating);
-        long res=DB.update("SleepingSchedule",contentValues,"where Email=? and Day=?",new String[]{email,d});  //update that object in database "table sleeping schedule"
-        DB.close();
-        //Check whether the update is done successfully
-        if (res==-1)
-        {
-            return false;
+        Cursor cursor=DB.rawQuery("Select * from User where Email=? ",new String[]{email});   //Define Cursor that will hold the returned record with that email
+        if(cursor.getCount()>0) {
+            long res = DB.update("User", contentValues, "Email=? ", new String[]{email});  //update that object in database "table sleeping schedule"
+            DB.close();
+            //Check whether the update is done successfully
+            if (res == -1) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        else
-        {
-            return true;
-        }
+        return false;
     }
 
     //Function Delete to delete a specific sleeping schedule entry from the database

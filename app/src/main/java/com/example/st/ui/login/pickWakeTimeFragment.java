@@ -55,6 +55,7 @@ public class pickWakeTimeFragment extends Fragment {
               //  LogData();
                 Intent i = new Intent(getActivity(), AppActivity.class);
                 startActivity(i);
+
             }
         });
     }
