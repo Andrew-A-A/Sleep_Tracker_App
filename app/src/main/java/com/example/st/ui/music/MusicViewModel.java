@@ -1,11 +1,20 @@
 package com.example.st.ui.music;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import android.media.MediaPlayer;
+
 import androidx.lifecycle.ViewModel;
 
 public class MusicViewModel extends ViewModel {
-    public MusicViewModel(){
+    String noiseName;
+    int imgid;
+    MediaPlayer mediaPlayer;
+
+    public MusicViewModel(String noiseName, int imgid, MediaPlayer mediaPlayer) {
+            this.noiseName = noiseName;
+            this.imgid = imgid;
+            this.mediaPlayer=mediaPlayer;
+        }
+
 
 //        mText=new MutableLiveData<>();
 
@@ -15,4 +24,4 @@ public class MusicViewModel extends ViewModel {
 //    public LiveData<String> getText(){
 //        return mText;
 //    }
-}
+

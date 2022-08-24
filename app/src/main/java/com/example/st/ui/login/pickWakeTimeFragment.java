@@ -38,7 +38,7 @@ public class pickWakeTimeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.i("Sleep Hour :", String.valueOf(LoginViewModel.ViewModel.sleepHour));
-        Toast.makeText(getContext(),LoginViewModel.ViewModel.Name,Toast.LENGTH_LONG).show();
+       // Toast.makeText(getContext(),LoginViewModel.ViewModel.Name,Toast.LENGTH_LONG).show();
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override

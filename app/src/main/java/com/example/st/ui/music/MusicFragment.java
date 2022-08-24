@@ -11,10 +11,14 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.st.R;
 import com.example.st.databinding.FragmentMusicBinding;
+
+import java.util.ArrayList;
 
 public class MusicFragment extends Fragment {
     MusicViewModel musicViewModel;
@@ -30,8 +34,7 @@ public class MusicFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        musicViewModel =
-                new ViewModelProvider(requireActivity()).get(MusicViewModel.class);
+
 
         binding = FragmentMusicBinding.inflate(inflater, container, false);
 
@@ -42,7 +45,11 @@ public class MusicFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        GridView gridView=binding.gridView;
+        ArrayList<MusicViewModel> ArrayList = new ArrayList<MusicViewModel>();
 
+        GridViewAdapter adapter=new GridViewAdapter(this.requireActivity(),ArrayList);
+        gridView.setAdapter(adapter);
         int whiteNoise1= R.raw.whitenoise1;
         int whiteNoise2= R.raw.whitenoise2;
         int whiteNoise3= R.raw.whitenoise3;
@@ -51,40 +58,18 @@ public class MusicFragment extends Fragment {
         int whiteNoise6= R.raw.whitenoise6;
 
          WhiteNoise1MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise1);
+        ArrayList.add(new MusicViewModel("Ocean",R.drawable.ic_noise1,WhiteNoise1MediaPlayer));
+
          WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise2);
+        ArrayList.add(new MusicViewModel("Forest",R.drawable.ic_noise2,WhiteNoise2MediaPlayer));
          WhiteNoise3MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise3);
-         WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise4);
-         WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise5);
-         WhiteNoise2MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise6);
-        binding.offlineSound1Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (WhiteNoise1MediaPlayer.isPlaying()) {
-                    binding.offlineSound1Button.setText("▶");
-                    WhiteNoise1MediaPlayer.setLooping(true);
-                    WhiteNoise1MediaPlayer.pause();
-                }
-                else {
-                    binding.offlineSound1Button.setText("■");
-                    WhiteNoise1MediaPlayer.start();
-                }
-
-            }
-        }); binding.offlineSound2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (WhiteNoise2MediaPlayer.isPlaying()) {
-                    binding.offlineSound2Button.setText("▶");
-                    WhiteNoise2MediaPlayer.setLooping(true);
-                    WhiteNoise2MediaPlayer.pause();
-                }
-                else {
-                    binding.offlineSound2Button.setText("■");
-                    WhiteNoise2MediaPlayer.start();
-                }
-
-            }
-        });
+        ArrayList.add(new MusicViewModel("Train",R.drawable.ic_noise3,WhiteNoise3MediaPlayer));
+        WhiteNoise4MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise4);
+        ArrayList.add(new MusicViewModel("Rain",R.drawable.ic_noise4,WhiteNoise4MediaPlayer));
+         WhiteNoise5MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise5);
+        ArrayList.add(new MusicViewModel("Thunder",R.drawable.ic_noise5,WhiteNoise5MediaPlayer));
+        WhiteNoise6MediaPlayer= MediaPlayer.create(getActivity(), whiteNoise6);
+        ArrayList.add(new MusicViewModel("Wind",R.drawable.ic_noise6,WhiteNoise6MediaPlayer));
 
     }
 
@@ -97,6 +82,13 @@ public class MusicFragment extends Fragment {
         binding = null;
         WhiteNoise1MediaPlayer.stop();
         WhiteNoise2MediaPlayer.stop();
+        WhiteNoise3MediaPlayer.stop();
+        WhiteNoise4MediaPlayer.stop();
+        WhiteNoise5MediaPlayer.stop();
+        WhiteNoise6MediaPlayer.stop();
+
 
     }
+
+
 }
