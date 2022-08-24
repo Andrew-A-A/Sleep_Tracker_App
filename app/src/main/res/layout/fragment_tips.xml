@@ -1,21 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0"
+    android:fillViewport="true"
+    android:background="@drawable/loginandsignupforms">
 
-    <TextView
-        android:id="@+id/text_tips"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title_tips"
+            android:layout_width="317dp"
+            android:layout_height="47dp"
+            android:fontFamily="@font/oleo_script"
+            android:text="How to sleep well at night?"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textFontWeight="@integer/config_navAnimTime"
+            android:textSize="27dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.05" />
+
+        <ImageView
+            android:id="@+id/title_tip_image"
+            android:layout_width="103dp"
+            android:layout_height="87dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="608dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.747"
+            app:layout_constraintStart_toEndOf="@+id/title_tips"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.084"
+            app:srcCompat="@drawable/tips_title_image" />
+
+        <TextView
+            android:id="@+id/secondary_title_tip"
+            android:layout_width="292dp"
+            android:layout_height="70dp"
+            android:fontFamily="@font/roboto_black"
+            android:text="Since sleep recharges your body and mind and bed is the best place in the world"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.305"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_tips" />
+
+        <TextView
+            android:id="@+id/junior_title_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_black"
+            android:text="Here is our tips for a better cozy night :"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.389"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.163" />
+
+        <LinearLayout
+            android:id="@+id/layout_tip1"
+            android:layout_width="319dp"
+            android:layout_height="64dp"
+            android:background="@drawable/tips_rectangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/junior_title_tip"
+            app:layout_constraintVertical_bias="0.025">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="270dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18sp"
+                android:fontFamily="@font/roboto_black"
+                android:orientation="vertical"
+                android:text="1. Stick to a sleep schedule "
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tip1"
+            android:layout_width="215dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="8dp"
+            android:text="Go to bed and get up at the same time every day, including weekends. Being consistent reinforces your body's sleep-wake cycle."
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.292"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_tip1"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/first_tip_image"
+            android:layout_width="110dp"
+            android:layout_height="115dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tip1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.284"
+            app:srcCompat="@drawable/firsttip" />
+
+        <LinearLayout
+            android:id="@+id/layout_tip2"
+            android:layout_width="319dp"
+            android:layout_height="64dp"
+            android:background="@drawable/tips_rectangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tip1"
+            app:layout_constraintVertical_bias="0.092">
+
+            <TextView
+                android:id="@+id/tip2_title"
+                android:layout_width="305dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_height="64dp"
+                android:fontFamily="@font/roboto_black"
+                android:orientation="vertical"
+                android:text="2. Pay attention to what you eat and drink "
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tip2"
+            android:layout_width="215dp"
+            android:layout_height="86dp"
+            android:text="Don't go to bed hungry or stuffed. In particular, avoid heavy or large meals within a couple of hours of bedtime. Discomfort might keep you up."
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.343"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_tip2"
+            app:layout_constraintVertical_bias="0.033" />
+
+        <ImageView
+            android:id="@+id/second_tip_image"
+            android:layout_width="79dp"
+            android:layout_height="83dp"
+            android:src="@drawable/tip2image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tip2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.522" />
+
+        <LinearLayout
+            android:id="@+id/layout_tip3"
+            android:layout_width="319dp"
+            android:layout_height="64dp"
+            android:background="@drawable/tips_rectangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tip2"
+            app:layout_constraintVertical_bias="0.131">
+
+            <TextView
+                android:id="@+id/tip3_title"
+                android:layout_width="305dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                android:fontFamily="@font/roboto_black"
+                android:orientation="vertical"
+                android:text="3. Create a restful environment "
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tip3"
+            android:layout_width="215dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="8dp"
+            android:text="Keep your room cool, dark and quiet. Exposure to light in the evenings might make it more challenging to fall asleep."
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.343"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_tip3" />
+
+        <ImageView
+            android:id="@+id/third_tip_image"
+            android:layout_width="91dp"
+            android:layout_height="76dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tip3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.733"
+            app:srcCompat="@drawable/enviroment" />
+
+        <LinearLayout
+            android:id="@+id/layout_tip4"
+            android:layout_width="319dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/tips_rectangle"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tip3"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="270dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="49dp"
+                android:layout_marginRight="49dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/roboto_black"
+                android:orientation="vertical"
+                android:text="4. Limit daytime naps "
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tip4"
+            android:layout_width="215dp"
+            android:layout_height="86dp"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="99dp"
+            android:layout_marginBottom="46dp"
+            android:text="Long daytime naps can interfere with nighttime sleep. Limit naps to no more than one hour and avoid napping late in the day."
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.162"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_tip4"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/tip4_image"
+            android:layout_width="91dp"
+            android:layout_height="76dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tip4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.956"
+            app:srcCompat="@drawable/sleeping" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

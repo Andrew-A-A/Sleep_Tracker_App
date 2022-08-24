@@ -4,54 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#37386e"
+    android:background="@drawable/loginandsignupforms"
     tools:context=".ui.login.loginFragment">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="408dp"
-        android:layout_height="424dp"
-        android:src="@drawable/back_3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="388dp"
-        android:layout_height="347dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo2"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="285dp"
-        android:layout_height="230dp"
+        android:layout_width="318dp"
+        android:layout_height="309dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/login_rectangle"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.968">
+        app:layout_constraintVertical_bias="0.933">
 
 
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="34dp"
             android:layout_marginEnd="24dp"
+            android:layout_marginBottom="18dp"
             android:background="@drawable/fields_backg_color"
             android:drawablePadding="16dp"
             android:ems="10"
@@ -63,9 +43,10 @@
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="6dp"
+
             android:layout_marginEnd="24dp"
             android:background="@drawable/fields_backg_color"
             android:drawablePadding="5dp"
@@ -80,8 +61,8 @@
             style="android:style/Widget.button"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="66dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginLeft="84dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="34dp"
             android:text="Login"
             android:textAlignment="center"
