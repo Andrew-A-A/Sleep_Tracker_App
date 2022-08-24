@@ -22,14 +22,12 @@ public class loginFragment extends Fragment {
     FragmentLoginBinding binding;
     SleepTrackerDatabase db;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentLoginBinding.inflate(inflater,container,false);
         db=new SleepTrackerDatabase(getActivity());
         // Inflate the layout for this fragment
         return binding.getRoot();
-
-
 
     }
 
@@ -45,10 +43,10 @@ public class loginFragment extends Fragment {
                                                                   if (!email.isEmpty() && !password.isEmpty())
                                                                   {
                                                                       Boolean res=db.CheckUser(email);
-                                                                      if (res==true)
+                                                                      if (res)
                                                                       {
                                                                           Boolean correctPassword=db.CheckUsersPassword(email,password);
-                                                                          if(correctPassword==true)
+                                                                          if(correctPassword)
                                                                           {
                                                                               Toast.makeText(getContext(),"Welcome Back Dear Friend <3 :)",Toast.LENGTH_SHORT).show();
                                                                               Intent i = new Intent(getActivity(), AppActivity.class);
@@ -69,7 +67,7 @@ public class loginFragment extends Fragment {
                                                                   }
                                                                   else
                                                                   {
-                                                                      Log.i("Test2","mafish 3alashan matgeesh");
+                                                                      Toast.makeText(getContext(),"Please Enter your Email and password !",Toast.LENGTH_SHORT).show();
                                                                   }
 
 

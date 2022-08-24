@@ -1,11 +1,11 @@
 package com.example.st.ui.home;
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.AlarmClock;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,13 +56,12 @@ public class HomeFragment extends Fragment {
         binding.picker.setStartTime(new TimeRangePicker.Time(sleephour,sleepmin));
         int totalmin=(wakehour*60)+wakemin;
         binding.picker.setEndTimeMinutes(totalmin);
-      //  binding.picker.setEndTime(new TimeRangePicker.Time(0,0));
-       // binding.picker.setStartTime(new TimeRangePicker.Time(3,0));
+
         binding.startTimeTextView.setText(binding.picker.getStartTime().toString());
         binding.endTimeTextView.setText(binding.picker.getEndTime().toString());
         binding.durationTextView.setText(binding.picker.getDuration().toString());
 
-       // Log.i("LOL",cursor.getString(0));
+
 
 //Set the Time Change Click listener to change values of time every time user pick different hour
         binding.picker.setOnTimeChangeListener(new TimeRangePicker.OnTimeChangeListener() {
@@ -109,7 +108,7 @@ public class HomeFragment extends Fragment {
                 database.InsertSleepingSchedule(binding.picker.getStartTime().getHour(),binding.picker.getStartTime().getMinute(),binding.picker.getEndTime().getHour(),
                         binding.picker.getEndTime().getMinute(),duration,cycles,rate, LoginViewModel.ViewModel.currentEmail,day);
                 Cursor current= database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
-                Log.i("Data",LogData());
+               // Log.i("Data",LogData());
                 int currentHour;
                 currentHour =binding.picker.getEndTime().getHour();
                 int currentMinute;
@@ -125,29 +124,29 @@ public class HomeFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private String LogData() {
-        Cursor cursor = database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
-        StringBuffer buffer = new StringBuffer();
-        while (cursor.moveToNext()) {
-            buffer.append("RecordID: " + cursor.getInt(0) + "\n");
-            buffer.append("Sleeping Hour: " + cursor.getInt(1) + "\n");
-            buffer.append("Sleeping Minute: " + cursor.getInt(2) + "\n");
-            buffer.append("Wake Up Hour: " + cursor.getInt(3) + "\n");
-            buffer.append("Wake Up Minute: " + cursor.getInt(4) + "\n");
-            buffer.append("Duration: " + cursor.getInt(5) + "\n");
-            buffer.append("Number of Cycles: " + cursor.getFloat(6)  + "\n");
-            buffer.append("Rating: "+ cursor.getString(7)  + "\n");
-            buffer.append("Email: "+ cursor.getString(8)  + "\n");
-            buffer.append("Day: "+ cursor.getInt(9)  + "\n");
-            buffer.append("----------------------------" + "\n");
-
-        }
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setCancelable(true);
-        builder.setTitle("User Entry Details");
-        builder.setMessage(buffer.toString());
-        builder.show();
-
-        return buffer.toString();
-    }
+//    private String LogData() {
+//        Cursor cursor = database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+//        StringBuffer buffer = new StringBuffer();
+//        while (cursor.moveToNext()) {
+//            buffer.append("RecordID: " + cursor.getInt(0) + "\n");
+//            buffer.append("Sleeping Hour: " + cursor.getInt(1) + "\n");
+//            buffer.append("Sleeping Minute: " + cursor.getInt(2) + "\n");
+//            buffer.append("Wake Up Hour: " + cursor.getInt(3) + "\n");
+//            buffer.append("Wake Up Minute: " + cursor.getInt(4) + "\n");
+//            buffer.append("Duration: " + cursor.getInt(5) + "\n");
+//            buffer.append("Number of Cycles: " + cursor.getFloat(6)  + "\n");
+//            buffer.append("Rating: "+ cursor.getString(7)  + "\n");
+//            buffer.append("Email: "+ cursor.getString(8)  + "\n");
+//            buffer.append("Day: "+ cursor.getInt(9)  + "\n");
+//            buffer.append("----------------------------" + "\n");
+//
+//        }
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//        builder.setCancelable(true);
+//        builder.setTitle("User Entry Details");
+//        builder.setMessage(buffer.toString());
+//        builder.show();
+//
+//        return buffer.toString();
+//    }
 }

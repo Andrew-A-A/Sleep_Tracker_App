@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginandsignupforms"
+
     tools:context=".ui.login.signupFragment">
 
     <LinearLayout
@@ -13,7 +13,7 @@
         android:layout_height="383dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/login_rectangle"
+        android:background="@drawable/register_rectangle"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,19 +24,21 @@
 
         <EditText
             android:id="@+id/name_edit_text"
+            android:textColor="@color/white"
+            android:textColorHint="#535353"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/fields_backg_color"
+            android:background="@drawable/fields_background_color"
             android:drawablePadding="19dp"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:textColorHint="#ffffff"
-            android:textSize="20dp" />
+            android:textSize="20sp"
+            android:autofillHints="name" />
 
         <EditText
             android:id="@+id/email_edit_text"
@@ -45,13 +47,15 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/fields_backg_color"
+            android:background="@drawable/fields_background_color"
             android:ems="10"
-            android:hint="Email"
-            android:inputType="textPersonName"
+            android:hint="@string/email"
+            android:textColor="@color/white"
+            android:textColorHint="#535353"
+            android:inputType="textEmailAddress"
             android:padding="10dp"
-            android:textColorHint="#ffffff"
-            android:textSize="20dp" />
+            android:textSize="20sp"
+            android:autofillHints="emailAddress" />
 
         <EditText
             android:id="@+id/password_edit_text"
@@ -59,41 +63,45 @@
             android:layout_height="50dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
+            android:textColor="@color/white"
+            android:textColorHint="#535353"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/fields_backg_color"
+            android:background="@drawable/fields_background_color"
             android:drawablePadding="19dp"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:textColorHint="#ffffff"
-            android:textSize="20dp" />
+            android:textSize="20sp"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/confirm_password_edit_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:textColorHint="#535353"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/fields_backg_color"
+            android:background="@drawable/fields_background_color"
             android:drawablePadding="19dp"
             android:ems="10"
-            android:hint="Confirm Password"
+            android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:textColorHint="#ffffff"
-            android:textSize="20dp" />
+            android:textSize="20sp"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/signup"
             style="android:style/Widget.button"
             android:layout_width="151dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="16dp"
-            android:layout_marginRight="24dp"
-            android:text="Signup"
+            android:layout_marginEnd="24dp"
+            android:text="@string/signup"
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:textSize="20sp" />

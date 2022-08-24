@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+
 
 import com.example.st.R;
 import com.example.st.databinding.FragmentSignupBinding;
@@ -21,9 +21,9 @@ public class signupFragment extends Fragment {
     FragmentSignupBinding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      //  viewModel=new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
+
         binding=FragmentSignupBinding.inflate(inflater,container,false);
         // Inflate the layout for this fragment
         return binding.getRoot();

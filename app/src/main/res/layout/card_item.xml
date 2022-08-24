@@ -23,7 +23,8 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="@string/white_noise_icon" />
 
         <TextView
             android:id="@+id/noiseName"
@@ -37,7 +38,7 @@
             android:id="@+id/play_pause"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="▶"
+            android:text="@string/play"
             android:textColor="@color/black"
             android:textAlignment="center" />
 

@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/intro_button" />
+        app:srcCompat="@drawable/intro_button"
+        android:contentDescription="@string/next_screen" />
 
     <TextView
         android:id="@+id/textView"
@@ -37,7 +38,7 @@
         android:layout_height="160dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/oleo_script"
-        android:text="Welcome to Sleep Tracker"
+        android:text="@string/welcome_to_sleep_tracker"
         android:textColor="#FFFFFF"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"

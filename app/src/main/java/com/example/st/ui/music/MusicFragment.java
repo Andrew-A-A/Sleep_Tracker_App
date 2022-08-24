@@ -6,14 +6,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+
 import android.widget.GridView;
-import android.widget.Toast;
+
 
 import com.example.st.R;
 import com.example.st.databinding.FragmentMusicBinding;
@@ -21,7 +21,7 @@ import com.example.st.databinding.FragmentMusicBinding;
 import java.util.ArrayList;
 
 public class MusicFragment extends Fragment {
-    MusicViewModel musicViewModel;
+
 
     private FragmentMusicBinding binding;
     MediaPlayer WhiteNoise1MediaPlayer;
@@ -46,7 +46,7 @@ public class MusicFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         GridView gridView=binding.gridView;
-        ArrayList<MusicViewModel> ArrayList = new ArrayList<MusicViewModel>();
+        ArrayList<MusicViewModel> ArrayList = new ArrayList<>();
 
         GridViewAdapter adapter=new GridViewAdapter(this.requireActivity(),ArrayList);
         gridView.setAdapter(adapter);

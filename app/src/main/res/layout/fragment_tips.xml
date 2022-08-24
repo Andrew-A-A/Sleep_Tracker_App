@@ -22,17 +22,18 @@
             android:layout_width="317dp"
             android:layout_height="47dp"
             android:fontFamily="@font/oleo_script"
-            android:text="How to sleep well at night?"
+            android:text="@string/how_to_sleep_well_at_night"
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:textFontWeight="@integer/config_navAnimTime"
-            android:textSize="27dp"
+            android:textSize="27sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.166"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintVertical_bias="0.05"
+            tools:ignore="UnusedAttribute" />
 
         <ImageView
             android:id="@+id/title_tip_image"
@@ -47,14 +48,15 @@
             app:layout_constraintStart_toEndOf="@+id/title_tips"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.098"
-            app:srcCompat="@drawable/tips_title_image" />
+            app:srcCompat="@drawable/tips_title_image"
+            android:contentDescription="@string/title_icon" />
 
         <TextView
             android:id="@+id/secondary_title_tip"
             android:layout_width="292dp"
             android:layout_height="70dp"
             android:fontFamily="@font/roboto_black"
-            android:text="Since sleep recharges your body and mind and bed is the best place in the world"
+            android:text="@string/since_sleep_recharges_your_body_and_mind_and_bed_is_the_best_place_in_the_world"
             android:textColor="#ffffff"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_black"
-            android:text="Here is our tips for a better cozy night :"
+            android:text="@string/here_is_our_tips_for_a_better_cozy_night"
             android:textColor="#ffffff"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -96,7 +98,7 @@
                 android:layout_marginTop="18sp"
                 android:fontFamily="@font/roboto_black"
                 android:orientation="vertical"
-                android:text="1. Stick to a sleep schedule "
+                android:text="@string/_1_stick_to_a_sleep_schedule"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
 
@@ -107,7 +109,7 @@
             android:layout_width="215dp"
             android:layout_height="86dp"
             android:layout_marginTop="8dp"
-            android:text="Go to bed and get up at the same time every day, including weekends. Being consistent reinforces your body's sleep-wake cycle."
+            android:text="@string/go_to_bed_and_get_up_at_the_same_time_every_day_including_weekends_being_consistent_reinforces_your_body_s_sleep_wake_cycle"
             android:textColor="#ffffff"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -128,7 +130,8 @@
             app:layout_constraintStart_toEndOf="@+id/tip1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.284"
-            app:srcCompat="@drawable/firsttip" />
+            app:srcCompat="@drawable/firsttip"
+            android:contentDescription="@string/firs_tip_icon" />
 
         <LinearLayout
             android:id="@+id/layout_tip2"
@@ -149,7 +152,7 @@
                 android:layout_height="64dp"
                 android:fontFamily="@font/roboto_black"
                 android:orientation="vertical"
-                android:text="2. Pay attention to what you eat and drink "
+                android:text="@string/_2_pay_attention_to_what_you_eat_and_drink"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -158,7 +161,7 @@
             android:id="@+id/tip2"
             android:layout_width="215dp"
             android:layout_height="86dp"
-            android:text="Don't go to bed hungry or stuffed. In particular, avoid heavy or large meals within a couple of hours of bedtime. Discomfort might keep you up."
+            android:text="@string/don_t_go_to_bed_hungry_or_stuffed_in_particular_avoid_heavy_or_large_meals_within_a_couple_of_hours_of_bedtime_discomfort_might_keep_you_up"
             android:textColor="#ffffff"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -178,7 +181,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/tip2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.522" />
+            app:layout_constraintVertical_bias="0.522"
+            android:contentDescription="@string/second_tip_icon" />
 
         <LinearLayout
             android:id="@+id/layout_tip3"
@@ -201,13 +205,14 @@
                 android:layout_marginRight="14dp"
                 android:fontFamily="@font/roboto_black"
                 android:orientation="vertical"
-                android:text="3. Create a restful environment "
+                android:text="@string/_3_create_a_restful_environment"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlHardcoded" />
         </LinearLayout>
 
         <TextView
@@ -215,7 +220,7 @@
             android:layout_width="215dp"
             android:layout_height="86dp"
             android:layout_marginTop="8dp"
-            android:text="Keep your room cool, dark and quiet. Exposure to light in the evenings might make it more challenging to fall asleep."
+            android:text="@string/keep_your_room_cool_dark_and_quiet_exposure_to_light_in_the_evenings_might_make_it_more_challenging_to_fall_asleep"
             android:textColor="#ffffff"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -233,7 +238,8 @@
             app:layout_constraintStart_toEndOf="@+id/tip3"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.733"
-            app:srcCompat="@drawable/enviroment" />
+            app:srcCompat="@drawable/enviroment"
+            android:contentDescription="@string/third_tip_icon" />
 
         <LinearLayout
             android:id="@+id/layout_tip4"
@@ -260,13 +266,14 @@
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/roboto_black"
                 android:orientation="vertical"
-                android:text="4. Limit daytime naps "
+                android:text="@string/_4_limit_daytime_naps"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlHardcoded" />
         </LinearLayout>
 
         <TextView
@@ -277,7 +284,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="99dp"
             android:layout_marginBottom="46dp"
-            android:text="Long daytime naps can interfere with nighttime sleep. Limit naps to no more than one hour and avoid napping late in the day."
+            android:text="@string/long_daytime_naps_can_interfere_with_nighttime_sleep_limit_naps_to_no_more_than_one_hour_and_avoid_napping_late_in_the_day"
             android:textColor="#ffffff"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -297,7 +304,8 @@
             app:layout_constraintStart_toEndOf="@+id/tip4"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.956"
-            app:srcCompat="@drawable/sleeping" />
+            app:srcCompat="@drawable/sleeping"
+            android:contentDescription="@string/fourth_tip_icon" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

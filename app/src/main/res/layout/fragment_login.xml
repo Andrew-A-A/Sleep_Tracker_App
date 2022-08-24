@@ -31,13 +31,15 @@
             android:layout_marginTop="34dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="18dp"
-            android:background="@drawable/fields_backg_color"
+            android:background="@drawable/fields_background_color"
             android:drawablePadding="16dp"
             android:ems="10"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:textColorHint="#ffffff" />
+            android:textColor="@color/white"
+            android:textColorHint="#535353"
+            android:autofillHints="emailAddress" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
@@ -47,25 +49,28 @@
             android:layout_marginTop="6dp"
 
             android:layout_marginEnd="24dp"
-            android:background="@drawable/fields_backg_color"
+            android:background="@drawable/fields_background_color"
             android:drawablePadding="5dp"
 
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:textColorHint="#ffffff" />
+            android:textColor="@color/white"
+            android:textColorHint="#535353"
+            android:autofillHints="password" />
 
         <Button
             android:id="@+id/button"
             style="android:style/Widget.button"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="84dp"
+            android:layout_marginStart="84dp"
             android:layout_marginTop="40dp"
-            android:layout_marginRight="34dp"
-            android:text="Login"
+            android:layout_marginEnd="34dp"
+            android:text="@string/login"
             android:textAlignment="center"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
+            android:textColorHint="#535353"
             android:textSize="20sp" />
 
     </LinearLayout>

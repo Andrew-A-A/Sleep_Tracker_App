@@ -49,6 +49,7 @@ public class IntroFragment extends Fragment {
     }
     public void replaceFragment(Fragment fragment){
 
+        assert getFragmentManager() != null;
         getFragmentManager().beginTransaction().
                 replace(R.id.fragmentContainerView,fragment)
                 .commit();

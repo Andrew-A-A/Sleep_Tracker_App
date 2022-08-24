@@ -1,8 +1,8 @@
 package com.example.st.ui.login;
 
-import android.app.AlertDialog;
+
 import android.content.Intent;
-import android.database.Cursor;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.st.AppActivity;
 import com.example.st.Database.SleepTrackerDatabase;
-import com.example.st.R;
+
 import com.example.st.databinding.FragmentPickWakeTimeBinding;
 
 
@@ -37,8 +37,6 @@ public class pickWakeTimeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.i("Sleep Hour :", String.valueOf(LoginViewModel.ViewModel.sleepHour));
-       // Toast.makeText(getContext(),LoginViewModel.ViewModel.Name,Toast.LENGTH_LONG).show();
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
@@ -54,36 +52,35 @@ public class pickWakeTimeFragment extends Fragment {
                 int wakeHour= LoginViewModel.ViewModel.wakeHour;
                 database.InsertUser(email,name,password,sleepHour,sleepMinute,wakeHour,wakeMinute);
                 Toast.makeText(getContext(),"User Added !",Toast.LENGTH_SHORT).show();
-                Log.i("save","Done");
-                LogData();
+              //  LogData();
                 Intent i = new Intent(getActivity(), AppActivity.class);
                 startActivity(i);
             }
         });
     }
 
-    private String LogData() {
-        Cursor cursor = database.ViewUserData();
-        StringBuffer buffer = new StringBuffer();
-        while (cursor.moveToNext()) {
-            buffer.append("Email: " + cursor.getString(0) + "\n");
-            buffer.append("Username: " + cursor.getString(1) + "\n");
-            buffer.append("Password: " + cursor.getString(2) + "\n");
-            buffer.append("Sleep Time Hour: " + cursor.getString(3) + "\n");
-            buffer.append("Sleeping Time Minute: " + cursor.getInt(4) + "\n");
-            buffer.append("Wakeup Time Hour: " + cursor.getInt(5) + "\n");
-            buffer.append("Wakeup Time Minute: " + cursor.getInt(6)  + "\n");
-            buffer.append("Sign up date: "+ cursor.getInt(7) + "-" + cursor.getInt(8) +"-"+ cursor.getInt(9) + "\n");
-            buffer.append("----------------------------" + "\n");
-
-        }
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setCancelable(true);
-        builder.setTitle("User Entry Details");
-        builder.setMessage(buffer.toString());
-        builder.show();
-
-        return buffer.toString();
-    }
+//    private String LogData() {
+//        Cursor cursor = database.ViewUserData();
+//        StringBuffer buffer = new StringBuffer();
+//        while (cursor.moveToNext()) {
+//            buffer.append("Email: " + cursor.getString(0) + "\n");
+//            buffer.append("Username: " + cursor.getString(1) + "\n");
+//            buffer.append("Password: " + cursor.getString(2) + "\n");
+//            buffer.append("Sleep Time Hour: " + cursor.getString(3) + "\n");
+//            buffer.append("Sleeping Time Minute: " + cursor.getInt(4) + "\n");
+//            buffer.append("Wakeup Time Hour: " + cursor.getInt(5) + "\n");
+//            buffer.append("Wakeup Time Minute: " + cursor.getInt(6)  + "\n");
+//            buffer.append("Sign up date: "+ cursor.getInt(7) + "-" + cursor.getInt(8) +"-"+ cursor.getInt(9) + "\n");
+//            buffer.append("----------------------------" + "\n");
+//
+//        }
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//        builder.setCancelable(true);
+//        builder.setTitle("User Entry Details");
+//        builder.setMessage(buffer.toString());
+//        builder.show();
+//
+//        return buffer.toString();
+//    }
 
 }
