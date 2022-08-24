@@ -43,10 +43,10 @@
             android:layout_marginBottom="608dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.747"
+            app:layout_constraintHorizontal_bias="0.526"
             app:layout_constraintStart_toEndOf="@+id/title_tips"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.084"
+            app:layout_constraintVertical_bias="0.098"
             app:srcCompat="@drawable/tips_title_image" />
 
         <TextView
