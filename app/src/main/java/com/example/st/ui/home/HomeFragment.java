@@ -147,7 +147,7 @@ public class HomeFragment extends Fragment {
         builder.setCancelable(true);
         builder.setTitle("User Entry Details");
         builder.setMessage(buffer.toString());
-        builder.show();
+       // builder.show();
 
         return buffer.toString();
     }

@@ -19,5 +19,4 @@
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_baseline_account_circle_24"
         android:title="@string/title_account" />
-
 </menu>

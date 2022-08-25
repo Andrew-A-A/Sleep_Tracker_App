@@ -18,13 +18,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.st.AppActivity;
 import com.example.st.Database.SleepTrackerDatabase;
 import com.example.st.R;
 import com.example.st.databinding.FragmentAccountBinding;
-import com.example.st.ui.login.LoginActivity;
+
 import com.example.st.ui.login.LoginViewModel;
 import com.example.st.ui.login.loginFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,7 +42,7 @@ public class AccountFragment extends Fragment implements AdapterView.OnItemClick
         View root=binding.getRoot();
         database=new SleepTrackerDatabase(getActivity());
         navBar=root.findViewById(R.id.nav_view);
-        final TextView textView = binding.textNotifications;
+
 
         return root;
     }
@@ -89,23 +87,29 @@ public class AccountFragment extends Fragment implements AdapterView.OnItemClick
         }
         if(position==4)
         {
-            StringBuffer buffer = new StringBuffer();
-            buffer.append("Cycles:"+"\n");
-            buffer.append("Average Number of Sleeping Cycles:"+getTotalCycles()/GetTotal()+"\n");
-            buffer.append("Total Number of Sleeping Cycles:"+getTotalCycles()+"\n");
-            buffer.append("Rating:"+"\n");
-            buffer.append("Average Rating: "+AvgRating()+"\n");
-            buffer.append("Total Hours of Sleep: "+(GetTotalSleepingTime()/60)+"\n");
-            buffer.append("Sleeping Time:"+"\n");
-            buffer.append("Average Sleeping Time: "+GetAvgSleepingTime()+"\n");
-            buffer.append("Waking Up Time:"+"\n");
-            buffer.append("Average Waking Up Time: "+GetAvgWakingUpTime()+"\n");
-            buffer.append("_________________________");
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setCancelable(true);
-            builder.setTitle("User Entry Details");
-            builder.setMessage(buffer.toString());
-            builder.show();
+            Cursor cursor=database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+            if(cursor.getCount()!=0) {
+                StringBuffer buffer = new StringBuffer();
+                buffer.append("Cycles:" + "\n");
+                buffer.append("Average Number of Sleeping Cycles:" + getTotalCycles() / GetTotal() + "\n");
+                buffer.append("Total Number of Sleeping Cycles:" + getTotalCycles() + "\n");
+                buffer.append("Rating:" + "\n");
+                buffer.append("Average Rating: " + AvgRating() + "\n");
+                buffer.append("Total Hours of Sleep: " + (GetTotalSleepingTime() / 60) + "\n");
+                buffer.append("Sleeping Time:" + "\n");
+                buffer.append("Average Sleeping Time: " + GetAvgSleepingTime() + "\n");
+                buffer.append("Waking Up Time:" + "\n");
+                buffer.append("Average Waking Up Time: " + GetAvgWakingUpTime() + "\n");
+                buffer.append("_________________________");
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setCancelable(true);
+                builder.setTitle("User Entry Details");
+                builder.setMessage(buffer.toString());
+                builder.show();
+            }
+            else{
+                Toast.makeText(getContext(),"No Data",Toast.LENGTH_SHORT).show();
+            }
         }
         if (position==5)
         {
