@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -72,9 +73,10 @@ public class AccountFragment extends Fragment implements AdapterView.OnItemClick
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         cursor=database.ViewCurrentUserData(LoginViewModel.ViewModel.currentEmail);
-        cursor.moveToFirst();
+
         if(position==0)
         {
+            cursor.moveToFirst();
             Toast.makeText(getContext(),"Hello Dear "+cursor.getString(1),Toast.LENGTH_SHORT).show();
         }
         if (position==2)
@@ -84,6 +86,26 @@ public class AccountFragment extends Fragment implements AdapterView.OnItemClick
         if(position==3)
         {
             ((AppCompatActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container,new UpdateWakeUpTimeFragment()).commit();
+        }
+        if(position==4)
+        {
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("Cycles:"+"\n");
+            buffer.append("Average Number of Sleeping Cycles:"+getTotalCycles()/GetTotal()+"\n");
+            buffer.append("Total Number of Sleeping Cycles:"+getTotalCycles()+"\n");
+            buffer.append("Rating:"+"\n");
+            buffer.append("Average Rating: "+AvgRating()+"\n");
+            buffer.append("Total Hours of Sleep: "+(GetTotalSleepingTime()/60)+"\n");
+            buffer.append("Sleeping Time:"+"\n");
+            buffer.append("Average Sleeping Time: "+GetAvgSleepingTime()+"\n");
+            buffer.append("Waking Up Time:"+"\n");
+            buffer.append("Average Waking Up Time: "+GetAvgWakingUpTime()+"\n");
+            buffer.append("_________________________");
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setCancelable(true);
+            builder.setTitle("User Entry Details");
+            builder.setMessage(buffer.toString());
+            builder.show();
         }
         if (position==5)
         {
@@ -97,5 +119,114 @@ public class AccountFragment extends Fragment implements AdapterView.OnItemClick
             navBar.setVisibility(View.GONE);
 
         }
+    }
+    public int GetTotal()
+    {
+        Cursor cursor=database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+        return cursor.getCount();
+    }
+    public float getTotalCycles()
+    {
+        Cursor cursor = database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+        float cycles=0;
+        while (cursor.moveToNext()) {
+            cycles+=cursor.getFloat(6);
+        }
+        return cycles;
+    }
+    public String AvgRating()
+    {
+        Cursor cursor=database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+        int excellent=0;
+        int good=0;
+        int bad=0;
+        while (cursor.moveToNext())
+        {
+            if(cursor.getString(7)=="Excellent")
+            {
+                excellent++;
+            }
+            else if(cursor.getString(7)=="Good")
+            {
+                good++;
+            }
+            else
+            {
+                bad++;
+            }
+        }
+        int x=Math.max(excellent,good);
+        int y=Math.max(excellent,bad);
+        int z=Math.max(good,bad);
+
+        if (excellent==good)
+        {
+            return "Excellent";
+        }
+        else if(excellent==bad)
+        {
+            return "Good";
+        }
+        else if(good==bad)
+        {
+            return "Good";
+        }
+        else
+        {
+            if(x==excellent && y==excellent)
+            {
+                return "Excellent";
+            }
+            else if(x==good && z==good)
+            {
+                return "Good";
+            }
+            else
+            {
+                return"Bad";
+            }
+        }
+    }
+    public int GetTotalSleepingTime()
+    {
+        Cursor cursor=database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+        int total =0;
+        while (cursor.moveToNext())
+        {
+            total+=cursor.getInt(5);
+        }
+        return total;
+    }
+    public String GetAvgSleepingTime()
+    {
+        Cursor cursor=database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+        int totalHours=0,totalMin=0;
+        while (cursor.moveToNext())
+        {
+            totalHours+=cursor.getInt(1);
+            totalMin+=cursor.getInt(2);
+        }
+        float avghours=((totalHours*60+totalMin)/cursor.getCount())/60;
+        float avgmin=(avghours*60)%60;
+
+        String message=String.valueOf((int)avghours)+":"+String.valueOf((int) avgmin);
+        return message;
+
+    }
+    public String GetAvgWakingUpTime()
+    {
+        Cursor cursor=database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+        int totalHours=0,totalMin=0;
+        while (cursor.moveToNext())
+        {
+            totalHours+=cursor.getInt(3);
+            totalMin+=cursor.getInt(4);
+        }
+        float avghours=((totalHours*60+totalMin)/cursor.getCount())/60;
+        float avgmin=(avghours*60)%60;
+
+        String message=String.valueOf((int)avghours)+":"+String.valueOf((int) avgmin);
+        return message;
+
     }
 }

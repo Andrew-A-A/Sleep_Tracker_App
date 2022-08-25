@@ -6,11 +6,13 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -108,7 +110,7 @@ public class HomeFragment extends Fragment {
                 database.InsertSleepingSchedule(binding.picker.getStartTime().getHour(),binding.picker.getStartTime().getMinute(),binding.picker.getEndTime().getHour(),
                         binding.picker.getEndTime().getMinute(),duration,cycles,rate, LoginViewModel.ViewModel.currentEmail,day);
                 Cursor current= database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
-               // Log.i("Data",LogData());
+                Log.i("Data",LogData());
                 int currentHour;
                 currentHour =binding.picker.getEndTime().getHour();
                 int currentMinute;
@@ -124,29 +126,29 @@ public class HomeFragment extends Fragment {
         return binding.getRoot();
     }
 
-//    private String LogData() {
-//        Cursor cursor = database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
-//        StringBuffer buffer = new StringBuffer();
-//        while (cursor.moveToNext()) {
-//            buffer.append("RecordID: " + cursor.getInt(0) + "\n");
-//            buffer.append("Sleeping Hour: " + cursor.getInt(1) + "\n");
-//            buffer.append("Sleeping Minute: " + cursor.getInt(2) + "\n");
-//            buffer.append("Wake Up Hour: " + cursor.getInt(3) + "\n");
-//            buffer.append("Wake Up Minute: " + cursor.getInt(4) + "\n");
-//            buffer.append("Duration: " + cursor.getInt(5) + "\n");
-//            buffer.append("Number of Cycles: " + cursor.getFloat(6)  + "\n");
-//            buffer.append("Rating: "+ cursor.getString(7)  + "\n");
-//            buffer.append("Email: "+ cursor.getString(8)  + "\n");
-//            buffer.append("Day: "+ cursor.getInt(9)  + "\n");
-//            buffer.append("----------------------------" + "\n");
-//
-//        }
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//        builder.setCancelable(true);
-//        builder.setTitle("User Entry Details");
-//        builder.setMessage(buffer.toString());
-//        builder.show();
-//
-//        return buffer.toString();
-//    }
+    private String LogData() {
+        Cursor cursor = database.ViewPersonalData(LoginViewModel.ViewModel.currentEmail);
+        StringBuffer buffer = new StringBuffer();
+        while (cursor.moveToNext()) {
+            buffer.append("RecordID: " + cursor.getInt(0) + "\n");
+            buffer.append("Sleeping Hour: " + cursor.getInt(1) + "\n");
+            buffer.append("Sleeping Minute: " + cursor.getInt(2) + "\n");
+            buffer.append("Wake Up Hour: " + cursor.getInt(3) + "\n");
+            buffer.append("Wake Up Minute: " + cursor.getInt(4) + "\n");
+            buffer.append("Duration: " + cursor.getInt(5) + "\n");
+            buffer.append("Number of Cycles: " + cursor.getFloat(6)  + "\n");
+            buffer.append("Rating: "+ cursor.getString(7)  + "\n");
+            buffer.append("Email: "+ cursor.getString(8)  + "\n");
+            buffer.append("Day: "+ cursor.getInt(9)  + "\n");
+            buffer.append("----------------------------" + "\n");
+
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(true);
+        builder.setTitle("User Entry Details");
+        builder.setMessage(buffer.toString());
+        builder.show();
+
+        return buffer.toString();
+    }
 }

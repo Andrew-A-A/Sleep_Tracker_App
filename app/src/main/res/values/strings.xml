@@ -36,4 +36,6 @@
     <string name="_4_limit_daytime_naps">4. Limit daytime naps</string>
     <string name="long_daytime_naps_can_interfere_with_nighttime_sleep_limit_naps_to_no_more_than_one_hour_and_avoid_napping_late_in_the_day">Long daytime naps can interfere with nighttime sleep. Limit naps to no more than one hour and avoid napping late in the day.</string>
     <string name="fourth_tip_icon">Fourth tip icon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

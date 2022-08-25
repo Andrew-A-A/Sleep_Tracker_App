@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/University/Summer Training/Android/Sleep_Tracker_App/app/src/main/res/layout/fragment_account.xml" value="0.25416666666666665" />
+        <entry key="..\:/University/Summer Training/Android/Sleep_Tracker_App/app/src/main/res/layout/fragment_dash_board.xml" value="0.25416666666666665" />
+        <entry key="..\:/University/Summer Training/Android/Sleep_Tracker_App/app/src/main/res/menu/dashboard_menu.xml" value="0.253125" />
         <entry key="..\:/Users/DR/AndroidStudioProjects/Sleep_Tracker_App/Sleep_Tracker_App/app/src/main/res/drawable/nav_background_curved.xml" value="0.231" />
         <entry key="..\:/Users/DR/AndroidStudioProjects/Sleep_Tracker_App/Sleep_Tracker_App/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/DR/AndroidStudioProjects/Sleep_Tracker_App/Sleep_Tracker_App/app/src/main/res/layout/fragment_account.xml" value="0.25" />
