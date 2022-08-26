@@ -1,11 +1,11 @@
 # Sleep Tracker App
-Android Application that helps users to Stick to a sleep schedule by setting alarms and track sleeping routine
+This is an Android Application that helps users stick to a consistent sleep schedule to achieve a better quality of life by consistent setting alarms and track the User's sleeping routine
 ## Features
 ● Stores users data in local Database <br>
 ● Set alarm based on data entered by the user <br>
-● calculate sleeping cycles <br>
-● play White noise to help in sleepin <br>
-● Show good sleeping routine tips <br>
+● Calculate sleeping cycles <br>
+● Play White noise to help in relaxing and falling asleep faster <br>
+● Show tips on how to increase your quality of sleep <br>
 
 ### Application Made for ASU University 2022 Summer training
-Using Sqlite for database , Java ana Android studio for the App
+Using SQLite for database , Java and Android studio for the IDE App
